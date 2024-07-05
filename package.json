@@ -1,0 +1,15 @@
+{
+	"name": "kjkent.dev",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"description": "The source code for kjkent.dev",
+	"main": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Kristopher James Kent <kris@kjkent.dev> (https://kjkent.dev)",
+	"license": "Unlicense",
+	"packageManager": "pnpm@9.4.0"
+}
