@@ -1,1 +1,5 @@
+# Lest we push the kitchen sink to GitHub
 node_modules/
+
+# 11ty
+dist/

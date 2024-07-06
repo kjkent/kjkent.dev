@@ -6,10 +6,15 @@
 	"description": "The source code for kjkent.dev",
 	"main": "",
 	"scripts": {
+		"start": "npx @11ty/eleventy --serve",
+		"build": "npx @11ty/eleventy",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
 	"author": "Kristopher James Kent <kris@kjkent.dev> (https://kjkent.dev)",
 	"license": "Unlicense",
-	"packageManager": "pnpm@9.4.0"
+	"packageManager": "pnpm@9.4.0",
+	"dependencies": {
+		"@11ty/eleventy": "canary"
+	}
 }
