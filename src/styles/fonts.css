@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
+
+@font-face {
+	font-family: bm;
+	src: url('/fonts/bm-r.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: bm;
+	font-weight: bold;
+	src: url('/fonts/bm-b.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: bm;
+	font-style: italic;
+	src: url('/fonts/bm-i.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: bm;
+	font-weight: bold;
+	font-style: italic;
+	src: url('/fonts/bm-bi.woff2') format('woff2');
+}

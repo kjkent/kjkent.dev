@@ -1,0 +1,46 @@
+{
+	"name": "kjkent-astro",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"astro": "pnpx astro",
+		"build": "pnpx astro check && pnpx astro build",
+		"preview": "pnpx astro preview",
+		"start": "pnpx astro dev"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.3",
+		"@astrojs/mdx": "^3.1.5",
+		"@astrojs/react": "^3.6.2",
+		"@astrojs/tailwind": "^5.1.0",
+		"@astrojs/ts-plugin": "^1.10.1",
+		"@fortawesome/fontawesome-svg-core": "^6.6.0",
+		"@fortawesome/free-brands-svg-icons": "^6.6.0",
+		"@iconify-json/fa6-brands": "^1.1.22",
+		"@types/node": "^22.5.1",
+		"@types/react": "^18.3.4",
+		"@types/react-dom": "^18.3.0",
+		"astro": "^4.14.6",
+		"astro-icon": "^1.1.1",
+		"autoprefixer": "^10.4.20",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"tailwindcss": "^3.4.10",
+		"tsx": "^4.19.0",
+		"typescript": "^5.5.4"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.9.1",
+		"eslint": "^9.9.1",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.35.0",
+		"globals": "^15.9.0",
+		"prettier": "^3.3.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-packagejson": "2.5.2",
+		"prettier-plugin-tailwindcss": "^0.6.6",
+		"typescript-eslint": "^8.3.0"
+	},
+	"packageManager": "pnpm@9.9.0"
+}
