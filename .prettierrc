@@ -11,7 +11,7 @@
 	"resolveGlobalModules": false,
 	"endOfLine": "lf",
 	"bracketSpacing": true,
-	"bracketSameLine": false,
+	"bracketSameLine": true,
 	"jsxSingleQuote": true,
 	"quoteProps": "as-needed",
 	"requirePragma": false,

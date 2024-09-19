@@ -1,3 +1,7 @@
-export type { Tree } from './Tree';
+export type { TreeSpec, RenderProps } from './directoryTree';
+export type { RFC } from './react';
+export type { PostBrief } from './post';
+export type { DateString } from './date';
+export type { RequireOnlyOne } from './utilities';
 
-export type xy = { x: number; y: number };
+export { toDateString } from './date';

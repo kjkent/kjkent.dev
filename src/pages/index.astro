@@ -1,6 +1,8 @@
 ---
 import '@/styles/base.css';
-import { Icon } from 'astro-icon/components';
+
+import { Base } from '@/layouts';
+import { LatestPost, Box, Header, H } from '@/components';
 ---
 
 <html lang='en'>
@@ -18,85 +20,31 @@ import { Icon } from 'astro-icon/components';
 		<title>kjkent</title>
 	</head>
 	<body>
-		<div class='min-h-screen bg-zinc-50 p-4 font-mono text-sm text-zinc-800'>
-			<header class='mb-4 border-b-2 border-black pb-2'>
-				<h1 class='text-2xl font-bold italic'>KRISTOPHER JAMES KENT</h1>
-				<h2 class='mb-4 text-xl'>
-				WEBSITE <span class='rounded bg-emerald-600 px-1 text-xl text-white'
-					>v0.5.0</span>
-			</h2>
-			<p class='text-2xl'>
-				<span class='text-lg'>SOCIALS: </span>
-				<Icon class='inline-block mx-1' name="fa6-brands:square-github" />
-				<Icon class='inline-block mx-1' name="fa6-brands:mastodon" />
-				<Icon class='inline-block mx-1' name="fa6-brands:square-x-twitter" />
-				<Icon class='inline-block mx-1' name="fa6-brands:square-youtube" />
-			</p>
-			</header>
+		<Base>
 
+			<Header />
+			<main class='grid grid-cols-4 gap-4'>
 
-		<main class='grid grid-cols-4 gap-4'>
-			<nav class='col-span-1 border-2 border-black p-2'>
-				<h2 class='mb-2 font-bold underline'>NAVIGATION</h2>
-				<ul class='list-inside list-disc'>
-					<li>BLOG POSTS</li>
-					<li>ABOUT ME</li>
-					<li>PROJECTS</li>
-					<li>CONTACT</li>
-				</ul>
-			</nav>
+				<Box className='col-span-1'>
+					<nav>
+					<H h={2}>CONTENTS</H>
+					<ul class='list-inside list-disc'>
+							<li>HOME</li>
+							<li>POSTS</li>
+					</ul>
+				</nav>
+				</Box>
 
-			<section class='col-span-3 border-2 border-black p-2'>
-				<h2 class='mb-2 font-bold underline'>LATEST BLOG POST</h2>
-				<table class='w-full border-collapse'>
-					<tbody>
-						<tr class='border-b border-black'>
-							<td class='pr-2 font-bold'>TITLE:</td>
-							<td>Implementing Apollo with React</td>
-						</tr>
-						<tr class='border-b border-black'>
-							<td class='pr-2 font-bold'>DATE:</td>
-							<td>2024-08-26</td>
-						</tr>
-						<tr>
-							<td class='pr-2 align-top font-bold'>ABSTRACT:</td>
-							<td>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</section>
+				<Box className='col-span-3'>
+					<LatestPost />
+				</Box>
 
-			<section class='col-span-4 mt-4 border-2 border-black p-2'>
-				<h2 class='mb-2 font-bold underline'>TECHNICAL SPECIFICATIONS</h2>
-				<table class='w-full border-collapse'>
-					<tbody>
-						<tr class='border-b border-black'>
-							<td class='pr-2 font-bold'>LANGUAGES:</td>
-							<td>C, Python, {`JS/TS(X)`}, Bash/zsh, SQL</td>
-						</tr>
-						<tr class='border-b border-black'>
-							<td class='pr-2 font-bold'>FRAMEWORKS:</td>
-							<td>React, Apollo, Express</td>
-						</tr>
-						<tr>
-							<td class='pr-2 font-bold'>INFRASTRUCTURE:</td>
-							<td
-								>AWS, Docker, Git, Azure <span class='text-xs text-zinc-100'
-									>please don't make me work on Azure again</span
-								></td
-							>
-						</tr>
-					</tbody>
-				</table>
-			</section>
-		</main>
+				<Box className='col-span-4'>
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				</Box>
 
-		<footer class='mt-4 border-t-2 border-black pt-2 text-center text-xs'>
-			<p>Made with hate by kjkent | © 2024 All rights reserved</p>
-			<p>REF. NO: DEV-2024-001</p>
-		</footer>
+			</main>
+
+		</Base>
 	</body>
 </html>

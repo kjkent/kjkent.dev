@@ -35,3 +35,14 @@ at least useful (for me) to note:
   as metadata and links, is injected into the template during compilation.
   Templates that _wrap other templates_, to provide page formatting, structure,
   and reusable components, are called **layouts**.
+
+## Notes
+
+For typing React components that use `{children,` and/or `...props}`, [this page](https://mortenbarklund.com/blog/react-typescript-props-spread/) presents a compelling argument for using `ComponentPropsWithoutRef<>` for the following reasons:
+
+- Easy to write
+- Excludes `ref`, which should never be passed in code.
+- Includes specific properties
+- Excludes invalid properties
+
+Point 2 & 4 seem the same, but Barklund separates them presumably because the alternatives all fail to exclude `ref`, even if otherwise successfull.
