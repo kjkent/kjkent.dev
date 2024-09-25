@@ -1,30 +1,32 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ],
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "target": "ES2022",
-    "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "Bundler",
-    "strict": true,
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "jsxImportSource": "react"
-  },
-  "extends": "astro/tsconfigs/strict"
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			}
+		],
+		"verbatimModuleSyntax": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"target": "ES2022",
+		"resolveJsonModule": true,
+		"jsx": "react-jsx",
+		"moduleResolution": "Bundler",
+		"strict": true,
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true,
+		"jsxImportSource": "react"
+	},
+	"extends": "astro/tsconfigs/strict",
+	"mdx": {
+		"checkMdx": true
+	}
 }

@@ -1,8 +1,7 @@
 import type { DateString } from '@/types';
 
-export type PostBrief = {
+export type PostMeta = {
 	title: string;
 	date: DateString;
 	abstract: string;
-	[label: string]: unknown;
 };

@@ -12,7 +12,7 @@ const baseStyles = [
 export const Base: RFC<{}, 'div'> = ({ children, ...props }) => {
 	return (
 		<div {...props} className={baseStyles}>
-			<div className='max-w-screen-lg'>
+			<div className='max-w-screen-md'>
 				{children}
 				<Footer />
 			</div>

@@ -1,26 +1,22 @@
 import React from 'react';
 import type { RFC } from '@/types';
-import { Link } from '@/utils';
-import { H, Icon } from '@/components';
+import { Icon, Link } from '@/components';
+import { extLinks } from '@/include';
+
+const iconRowStyle = ['inline-block', 'mr-4'].join(' ');
 
 export const Header: RFC<{}, 'header'> = () => {
 	return (
 		<header className='mb-4 border-b-2 border-black pb-2'>
-			<H h={1}>KRISTOPHER JAMES KENT</H>
-
+			<h1 className='ml-1'>KRISTOPHER JAMES KENT</h1>
 			<section className='text-2xl'>
-				<Link href='https://github.com/kjkent'>
-					<Icon icon='mdi--github' />
-				</Link>
-				<Link href='https://aur.archlinux.org/packages?K=kjkent&SeB=m'>
-					<Icon icon='mdi--arch' />
-				</Link>
-				<Link href='https://muckrack.com/kjkent'>
-					<Icon icon='mdi--newspaper' />
-				</Link>
-				<Link href='https://linkedin.com/in/kjkent'>
-					<Icon icon='mdi--linkedin' />
-				</Link>
+				{extLinks.map((e, i) => {
+					return (
+						<Link key={i} href={e.href}>
+							<Icon className={iconRowStyle} icon={e.icon} />
+						</Link>
+					);
+				})}
 			</section>
 		</header>
 	);

@@ -14,10 +14,16 @@ const dynamicStyles = {
 	6: 'text-base underline',
 };
 
-export const H: HeaderComponent = ({ h, children }) => {
+export const H: HeaderComponent = ({ h, children, className: propStyles }) => {
 	return createElement(
 		`h${h}`,
-		{ className: [staticStyles, dynamicStyles[h]].join(' ') },
+		{
+			className: [
+				staticStyles,
+				dynamicStyles[h],
+				propStyles,
+			].join(' ')
+		},
 		children,
 	);
 };

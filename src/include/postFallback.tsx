@@ -1,8 +1,7 @@
-import { H } from '@/components';
-import { toDateString, type PostBrief, type RFC } from '@/types';
-import { Center, Link } from '@/utils';
+import { Center, Link } from '@/components';
+import { toDateString, type PostMeta, type RFC } from '@/types';
 
-export const brief: PostBrief = {
+export const brief: PostMeta = {
 	title: "404: Hey, where's my blog post?!",
 	date: toDateString('1985-10-26'),
 	abstract:
@@ -14,7 +13,7 @@ export const brief: PostBrief = {
 export const Post: RFC<{}, 'section'> = ({ ...attrs }) => {
 	return (
 		<section {...attrs}>
-			<H h={1}>Hey, where's my blog post?!</H>
+			<h1>Hey, where's my blog post?!</h1>
 			<p>
 				If you're reading this, something has well and truly **ballsed up**.
 				Rest assured, I am either on the case, or have zero idea anything is

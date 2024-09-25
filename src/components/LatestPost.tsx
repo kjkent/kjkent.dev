@@ -1,11 +1,11 @@
 import React from 'react';
-import { type RFC, type PostBrief } from '@/types';
+import { type RFC, type PostMeta } from '@/types';
 import { postFallback } from '@/include';
 
 const { brief: briefFallback } = postFallback;
 
-export const LatestPost: RFC<{ postBrief: PostBrief }, 'table'> = ({
-	postBrief = briefFallback,
+export const LatestPost: RFC<{ meta: PostMeta }, 'table'> = ({
+	meta = briefFallback,
 	...attrs
 }) => {
 	return (
@@ -17,19 +17,19 @@ export const LatestPost: RFC<{ postBrief: PostBrief }, 'table'> = ({
 				<th scope='row' className='pr-2 text-start font-bold'>
 					TITLE:
 				</th>
-				<td>{postBrief.title}</td>
+				<td>{meta.title}</td>
 			</tr>
 			<tr className='border-b border-black'>
 				<th scope='row' className='pr-2 text-start font-bold'>
 					DATE:
 				</th>
-				<td>{postBrief.date}</td>
+				<td>{meta.date}</td>
 			</tr>
 			<tr>
 				<th scope='row' className='pr-2 align-top font-bold'>
 					ABSTRACT:
 				</th>
-				<td>{postBrief.abstract}</td>
+				<td>{meta.abstract}</td>
 			</tr>
 		</table>
 	);

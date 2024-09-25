@@ -5,12 +5,12 @@ import type { RFC, TreeSpec, RenderProps } from '@/types';
  * I wrote this as a class for the sake of it.
  */
 class _DirectoryTree {
-	private glyphs = {
+	#glyphs = {
 		line: { x: '──', y: '│' },
 		node: { root: '┐', mid: '├', end: '└' },
 	};
 
-	constructor(private treeSpec: TreeSpec) {
+	constructor(public treeSpec: TreeSpec) {
 		this.treeSpec = treeSpec;
 	}
 
@@ -22,7 +22,7 @@ class _DirectoryTree {
 		const { label, children = [] } = treeSpec;
 		const { prefix, isLastChild, isRoot } = props;
 
-		const glyphs = this.glyphs;
+		const glyphs = this.#glyphs;
 		const tree: string[] = [];
 
 		const nodeGlyph =

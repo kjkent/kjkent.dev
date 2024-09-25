@@ -1,32 +1,49 @@
-import globals from 'globals';
+//@ts-check
 
+import globals from 'globals';
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import astro from 'eslint-plugin-astro';
 import a11y from 'eslint-plugin-jsx-a11y';
-import prettier from 'eslint-plugin-prettier/recommended';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
-	// Default sharable configs from plugins
-	a11y.flatConfigs.recommended,
+	{
+		files: ['**/*.{{,c,m}{j,t}s,{j,t}sx,astro}'],
+		ignores: ['node_modules/', 'dist/', 'build/', '.*/'],
+		languageOptions: {
+			globals: { ...globals.browser, ...globals.node },
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.dirname,
+			},
+		},
+	},
+
 	js.configs.recommended,
-	ts.configs.recommended,
-	prettier,
+	...ts.configs.recommendedTypeChecked,
+	...ts.configs.stylisticTypeChecked,
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+	react.configs.flat.recommended,
+	...astro.configs.recommended,
+	a11y.flatConfigs.recommended,
+	prettierRecommended,
 
 	{
-		// Needs separating to avoid react-in-jsx-scope
-		files: ['**/*.astro'],
-		...astro.configs.recommended,
-	},
-	{
-		files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-		...react.configs.flat.recommended,
-	},
-
-	{
-		// Defaults for all supported files
-		files: ['**/*.{astro,cjs,js,jsx,mjs,ts,tsx}'],
-		languageOptions: { globals: { ...globals.browser, ...globals.node } },
+		rules: {
+			'prettier/prettier': [
+				'warn',
+				{
+					EndOfLine: 'auto',
+				},
+			],
+		},
+		settings: {
+			react: {
+				version: 'detect',
+			},
+		},
 	},
 ];

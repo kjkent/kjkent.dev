@@ -1,8 +1,12 @@
 ---
 import '@/styles/base.css';
-
 import { Base } from '@/layouts';
-import { LatestPost, Box, Header, H } from '@/components';
+import { Article, LatestPost, Box, Header } from '@/components';
+import { about } from '@/include';
+import * as MDX from '@/content/about.mdx';
+
+const About = about.Content;
+
 ---
 
 <html lang='en'>
@@ -11,7 +15,7 @@ import { LatestPost, Box, Header, H } from '@/components';
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta
 			name='viewport'
-			content='width=device-width, height=device-height, initial-scale=1.0'
+			content='width=device-width, initial-scale=1.0'
 		/>
 		<meta
 			name='description'
@@ -27,7 +31,7 @@ import { LatestPost, Box, Header, H } from '@/components';
 
 				<Box className='col-span-1'>
 					<nav>
-					<H h={2}>CONTENTS</H>
+					<h2>CONTENTS</h2>
 					<ul class='list-inside list-disc'>
 							<li>HOME</li>
 							<li>POSTS</li>
@@ -36,11 +40,13 @@ import { LatestPost, Box, Header, H } from '@/components';
 				</Box>
 
 				<Box className='col-span-3'>
-					<LatestPost />
+					<LatestPost meta={MDX} />
 				</Box>
 
 				<Box className='col-span-4'>
-					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					<Article>
+						<About />
+					</Article>
 				</Box>
 
 			</main>

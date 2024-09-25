@@ -8,7 +8,7 @@ const checkAstroSiteDefined = (): void => {
 			'Astro.site is not defined. Ensure `site` is defined in config.',
 		);
 	}
-}
+};
 
 const urlIsActive = (url: URL): boolean => {
 	return url.pathname === Astro.url.pathname;
@@ -39,11 +39,12 @@ export const parseHref = (href: string | URL): URL => {
 	}
 };
 
-export const Link: RFC<{ href: string | URL }, 'a'> = ({
-	href,
-	children,
-	...attrs
-}) => {
+export type LinkProps = {
+	href: string | URL;
+	activeClassName?: string;
+};
+
+export const Link: RFC<LinkProps, 'a'> = ({ href, children, ...attrs }) => {
 	const url = parseHref(href);
 	const isInternal = urlIsInternal(url);
 
@@ -56,6 +57,10 @@ export const Link: RFC<{ href: string | URL }, 'a'> = ({
 		// noopener is often inferred but perhaps not on old browsers
 		attrs.rel = 'external noopener noreferrer';
 		attrs.target = '_blank';
+	}
+
+	if (attrs.activeClassName && urlIsActive(url)) {
+		attrs.className = attrs.activeClassName;
 	}
 
 	return (

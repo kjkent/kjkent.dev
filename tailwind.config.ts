@@ -1,10 +1,9 @@
-import { type Config } from 'tailwindcss';
+import { type Config as TailwindConfig } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import typography from '@tailwindcss/typography';
+import { addDynamicIconSelectors } from '@iconify/tailwind';
 
-import { addIconSelectors } from '@iconify/tailwind';
-
-/** @type {import('tailwindcss').Config} */
-export default {
+const tailwindConfig: TailwindConfig = {
 	content: ['./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdx}'],
 	theme: {
 		extend: {
@@ -14,6 +13,7 @@ export default {
 			},
 		},
 	},
-	// Iconify plugin; requires icon sets to be declared.
-	plugins: [addIconSelectors(['mdi'])],
-} satisfies Config;
+	plugins: [addDynamicIconSelectors(), typography()],
+};
+
+export default tailwindConfig;
