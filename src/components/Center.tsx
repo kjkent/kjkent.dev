@@ -1,9 +1,8 @@
 import type { RFC } from '@/types';
-import React from 'react';
 
 type CenterProps = { axis: 'x' | 'y' | 'xy' | 'yx' };
 
-export const Center: RFC<CenterProps, 'div'> = ({
+export const Center: RFC<'div', CenterProps> = ({
 	axis,
 	className,
 	children,

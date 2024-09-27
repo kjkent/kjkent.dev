@@ -1,4 +1,3 @@
-import React from 'react';
 import Astro from 'astro:global';
 import type { RFC } from '@/types';
 
@@ -44,7 +43,7 @@ export type LinkProps = {
 	activeClassName?: string;
 };
 
-export const Link: RFC<LinkProps, 'a'> = ({ href, children, ...attrs }) => {
+export const Link: RFC<'a', LinkProps> = ({ href, children, ...attrs }) => {
 	const url = parseHref(href);
 	const isInternal = urlIsInternal(url);
 

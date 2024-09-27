@@ -1,6 +1,6 @@
-import React, { type FC, type ReactElement } from 'react';
+import type { RFC } from '@/types';
 
-export const Post: FC = (): ReactElement => {
+export const Post: RFC<'div'> = () => {
 	return (
 		<div className='min-h-screen bg-gray-100 p-4 font-mono text-xs'>
 			<header className='mb-4 border-b-2 border-black pb-2'>

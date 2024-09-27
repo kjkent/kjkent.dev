@@ -1,13 +1,18 @@
-import React from 'react';
-import { type RFC, type PostMeta } from '@/types';
-import { postFallback } from '@/include';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { type RFC } from '@/types';
+import { dateStringify } from '@/utils';
 
-const { brief: briefFallback } = postFallback;
+const posts = await getCollection('posts');
+const latestPost = posts.sort(
+	(a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) => {
+		const dateA = a.data.published;
+		const dateB = b.data.published;
+		return dateB.getTime() - dateA.getTime();
+	},
+)[0];
 
-export const LatestPost: RFC<{ meta: PostMeta }, 'table'> = ({
-	meta = briefFallback,
-	...attrs
-}) => {
+export const LatestPost: RFC<'table'> = ({ ...attrs }) => {
+	const { title, published, abstract } = latestPost.data;
 	return (
 		<table className='w-full border-collapse' {...attrs}>
 			<caption className='mb-2 text-start font-bold underline'>
@@ -17,19 +22,19 @@ export const LatestPost: RFC<{ meta: PostMeta }, 'table'> = ({
 				<th scope='row' className='pr-2 text-start font-bold'>
 					TITLE:
 				</th>
-				<td>{meta.title}</td>
+				<td>{title}</td>
 			</tr>
 			<tr className='border-b border-black'>
 				<th scope='row' className='pr-2 text-start font-bold'>
 					DATE:
 				</th>
-				<td>{meta.date}</td>
+				<td>{dateStringify(published)}</td>
 			</tr>
 			<tr>
 				<th scope='row' className='pr-2 align-top font-bold'>
 					ABSTRACT:
 				</th>
-				<td>{meta.abstract}</td>
+				<td>{abstract}</td>
 			</tr>
 		</table>
 	);

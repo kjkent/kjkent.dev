@@ -1,7 +1,7 @@
 import { Center, Link } from '@/components';
-import { toDateString, type PostMeta, type RFC } from '@/types';
+import { type PostMeta, type RFC, toDateString } from '@/types';
 
-export const brief: PostMeta = {
+export const meta: PostMeta = {
 	title: "404: Hey, where's my blog post?!",
 	date: toDateString('1985-10-26'),
 	abstract:
@@ -10,7 +10,7 @@ export const brief: PostMeta = {
 		'to others, and an enduring testament to my folly.',
 };
 
-export const Post: RFC<{}, 'section'> = ({ ...attrs }) => {
+export const Post: RFC<'section'> = ({ ...attrs }) => {
 	return (
 		<section {...attrs}>
 			<h1>Hey, where's my blog post?!</h1>

@@ -1,8 +1,7 @@
-import React, { type ReactNode } from 'react';
 import type { RFC } from '@/types';
 import { Center } from '@/components';
 
-export const Article: RFC<{ children: ReactNode }, 'article'> = ({
+export const Article: RFC<'article'> = ({
 	children,
 	...attrs
 }) => {

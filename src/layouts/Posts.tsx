@@ -1,6 +1,6 @@
-import React, { type FC, type ReactElement } from 'react';
+import type { RFC } from '@/types';
 
-export const Posts: FC = (): ReactElement => {
+export const Posts: RFC = () => {
 	return (
 		<table>
 			<thead className='underline'>

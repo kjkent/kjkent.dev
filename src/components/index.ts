@@ -1,5 +1,4 @@
 export { LatestPost } from './LatestPost';
-export { DirectoryTree } from './DirectoryTree';
 export { Header } from './Header';
 export { Box } from './Box';
 export { Footer } from './Footer';

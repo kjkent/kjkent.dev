@@ -10,9 +10,8 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+	// Global config
 	{
-		files: ['**/*.{{,c,m}{j,t}s,{j,t}sx,astro}'],
-		ignores: ['node_modules/', 'dist/', 'build/', '.*/'],
 		languageOptions: {
 			globals: { ...globals.browser, ...globals.node },
 			parserOptions: {
@@ -22,6 +21,7 @@ export default [
 		},
 	},
 
+	// Sharable configs from plugins
 	js.configs.recommended,
 	...ts.configs.recommendedTypeChecked,
 	...ts.configs.stylisticTypeChecked,
@@ -31,6 +31,7 @@ export default [
 	a11y.flatConfigs.recommended,
 	prettierRecommended,
 
+	// Custom config
 	{
 		rules: {
 			'prettier/prettier': [
@@ -46,4 +47,13 @@ export default [
 			},
 		},
 	},
+	// Ignores must be in own object
+	{
+		ignores: ['node_modules/', 'dist/', 'build/', '.*/', '**/env.d.ts'],
+	},
+
+	// Seemingly no way to have sharable configs be scoped to filetypes
+	// {
+	// 	files: ['**/*.{{,c,m}{j,t}s,{j,t}sx,astro}'],
+	// },
 ];

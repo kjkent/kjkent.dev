@@ -3,17 +3,16 @@
 ## What is this?
 
 This repo holds the source code for [kjkent.dev](https://kjkent.dev), a simple
-static site compiled with [Eleventy](https://11ty.dev).
+static site compiled with [Astro](https://astro.build), using React (for component-oriented development), TypeScript, Tailwind CSS, and MDX.
 
 ## Package structure
 
 ```Bash
 @
-├── dist         # Eleventy build output (VCS-ignored)
+├── dist         # Build output (VCS-ignored)
 │
-└── src          # Eleventy template base dir
-    ├── data     # Template data
-    ├── include  # Template consumables
+└── src          # Layouts, components, content, utilities, etc.
+    ├── data     # Content
     └── layout   # Higher order templates
 ```
 
@@ -45,4 +44,9 @@ For typing React components that use `{children,` and/or `...props}`, [this page
 - Includes specific properties
 - Excludes invalid properties
 
-Point 2 & 4 seem the same, but Barklund separates them presumably because the alternatives all fail to exclude `ref`, even if otherwise successfull.
+Point 2 & 4 seem the same, but Barklund separates them presumably because the alternatives all fail to exclude `ref`, even if otherwise successful.
+
+## src/content
+
+This directory is reserved for Astro during the transition to the new Content
+Collections API. Aside from `config.ts`, do not add files to this directory.

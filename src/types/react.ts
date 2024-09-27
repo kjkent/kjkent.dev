@@ -32,8 +32,8 @@ export type FCProps<
  * }
  */
 export type RFC<
-	Props extends GenericProp = ComponentPropsWithoutRef<ElementType>,
 	ReturnedHTMLElement extends ElementType = ElementType,
+	Props extends GenericProp = ComponentPropsWithoutRef<ElementType>,
 > = {
 	(props: FCProps<Props, ReturnedHTMLElement>): ReactNode | null;
 };

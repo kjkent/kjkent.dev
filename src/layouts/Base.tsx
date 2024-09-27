@@ -1,4 +1,3 @@
-import React from 'react';
 import type { RFC } from '@/types';
 import { Footer } from '@/components';
 
@@ -9,7 +8,7 @@ const baseStyles = [
 	'flex justify-center',
 ].join(' ');
 
-export const Base: RFC<{}, 'div'> = ({ children, ...props }) => {
+export const Base: RFC<'div'> = ({ children, ...props }) => {
 	return (
 		<div {...props} className={baseStyles}>
 			<div className='max-w-screen-md'>

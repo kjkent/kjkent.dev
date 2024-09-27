@@ -1,8 +1,7 @@
-import React from 'react';
 import type { RFC } from '@/types';
 
-const randomElement = (vals: unknown[]) => {
-	return vals[Math.floor(Math.random() * vals.length)];
+const randomElement = (arr: unknown[]) => {
+	return arr[Math.floor(Math.random() * arr.length)];
 };
 
 const footerStyle = [
@@ -22,7 +21,7 @@ const snark: string[] = [
 // TODO: Remember to replace this
 const licenseURL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 const licenseText = '© 2024 Kristopher James Kent';
-export const LicenceLink: RFC<{}, 'a'> = ({ ...attrs }) => {
+export const LicenceLink: RFC<'a'> = ({ ...attrs }) => {
 	return (
 		<a {...attrs} href={licenseURL}>
 			{licenseText}
@@ -30,7 +29,7 @@ export const LicenceLink: RFC<{}, 'a'> = ({ ...attrs }) => {
 	);
 };
 
-export const Footer: RFC<{}, 'footer'> = ({ ...attrs }) => {
+export const Footer: RFC<'footer'> = ({ ...attrs }) => {
 	return (
 		<footer {...attrs} className={footerStyle}>
 			<p>

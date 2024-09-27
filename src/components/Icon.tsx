@@ -1,9 +1,8 @@
-import React from 'react';
 import type { RFC } from '@/types';
 
 const defaultStyle = 'inline-block';
 
-export const Icon: RFC<{ icon: string }, 'span'> = ({
+export const Icon: RFC<'span', { icon: string }> = ({
 	icon,
 	className,
 	...props
