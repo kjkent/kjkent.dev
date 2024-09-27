@@ -1,7 +1,17 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
-		"paths": { "@/*": ["./src/*"] },
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
 		"checkJs": true,
 
 		// *** Astro.js base config ***
@@ -63,7 +73,7 @@
 		"allowUnusedLabels": false
 		// ---------------------------------
 	},
-	"include": ["./.astro/types.d.ts", "**/*"],
+	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["dist"],
 	"mdx": {
 		"checkMdx": true
