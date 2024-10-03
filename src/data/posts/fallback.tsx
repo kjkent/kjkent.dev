@@ -1,16 +1,17 @@
+import { type PostMeta, type RFC } from '@/types';
+import { toDate } from '@/utils';
 import { Center, Link } from '@/components';
-import { type PostMeta, type RFC, toDateString } from '@/types';
 
-export const meta: PostMeta = {
+export const fallbackMeta: PostMeta = {
 	title: "404: Hey, where's my blog post?!",
-	date: toDateString('1985-10-26'),
+	published: toDate('1985-10-26'),
 	abstract:
 		"There should be a beautifully crafted blog post here, but, there's not! " +
 		'Something has clearly gone wrong, leaving this placeholder as a warning ' +
 		'to others, and an enduring testament to my folly.',
 };
 
-export const Post: RFC<'section'> = ({ ...attrs }) => {
+export const fallbackPost: RFC<'section'> = ({ ...attrs }) => {
 	return (
 		<section {...attrs}>
 			<h1>Hey, where's my blog post?!</h1>

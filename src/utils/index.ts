@@ -1,1 +1,1 @@
-export { dateStringify } from './date';
+export { dateStringify, toDate, toDateString } from './date';

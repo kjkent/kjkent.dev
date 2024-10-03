@@ -6,10 +6,10 @@
 
 @layer base {
 	h1 {
-		@apply mb-2 text-2xl font-bold italic
+		@apply text-[#ffb378] mb-10 text-3xl font-bold font-mono tracking-wider italic
 	}
 	h2 {
-		@apply mb-1 text-lg font-bold
+		@apply mb-4 font-bold underline tracking-wider underline-offset-4 decoration-2 decoration-double
 	}
 	h3{
 		@apply mb-1 text-base underline

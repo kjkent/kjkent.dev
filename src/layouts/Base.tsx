@@ -1,20 +1,19 @@
 import type { RFC } from '@/types';
 import { Footer } from '@/components';
+import '@/styles/base.css';
 
 const baseStyles = [
-	'min-h-screen p-4',
-	'text-sm font-mono',
-	'text-zinc-800 bg-zinc-50',
-	'flex justify-center',
+	'h-screen',
+	'w-screen',
+	'flex flex-col',
+	'bg-[#16161e] text-[#cbe3e7]',
 ].join(' ');
 
 export const Base: RFC<'div'> = ({ children, ...props }) => {
 	return (
 		<div {...props} className={baseStyles}>
-			<div className='max-w-screen-md'>
-				{children}
-				<Footer />
-			</div>
+			<div className='grow'>{children}</div>
+			<Footer />
 		</div>
 	);
 };

@@ -4,38 +4,27 @@ const randomElement = (arr: unknown[]) => {
 	return arr[Math.floor(Math.random() * arr.length)];
 };
 
-const footerStyle = [
-	'mt-4',
-	'pt-2',
-	'border-t-2',
-	'border-black',
-	'text-center',
-	'text-xs',
-].join(' ');
-
 const snark: string[] = [
-	'Made with hate by kjkent',
-	'All the other sites have cookies, where are mine? :(',
+	'Powered by Existential Dread™',
+	"All the other sites have cookies, where are mine? :'(",
+	'All your base are belong to us',
+	'(╯°□°）╯︵ ┻━┻',
+	'(ノಠ益ಠ)ノ彡┻━┻',
+	'Not tested on animals',
+	'Tabs are the superior indentation method',
+	'the an​*̶͑̾̾​̅ͫ͏̙̤g͇̫͛͆̾ͫ̑͆l͖͉̗̩̳̟̍ͫͥͨe̠̅s ͎a̧͈͖r̽̾̈́͒͑e n​ot rè̑ͧ̌aͨl̘̝̙̃ͤ͂̾̆',
 ];
 
-// TODO: Remember to replace this
-const licenseURL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-const licenseText = '© 2024 Kristopher James Kent';
-export const LicenceLink: RFC<'a'> = ({ ...attrs }) => {
-	return (
-		<a {...attrs} href={licenseURL}>
-			{licenseText}
-		</a>
-	);
-};
+const copyright = '© 2024 Kristopher James Kent';
+
+const footerStyle = ['pb-1', 'text-[#e0af68]', 'text-center', 'text-xs'].join(
+	' ',
+);
 
 export const Footer: RFC<'footer'> = ({ ...attrs }) => {
 	return (
 		<footer {...attrs} className={footerStyle}>
-			<p>
-				{randomElement(snark) as string} | <LicenceLink />
-			</p>
-			<p>SPDX: GPL-3.0-or-later</p>
+			{randomElement(snark) as string} <b>|</b> {copyright}
 		</footer>
 	);
 };

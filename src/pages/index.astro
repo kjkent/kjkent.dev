@@ -1,7 +1,6 @@
 ---
-import '@/styles/base.css';
 import { Base } from '@/layouts';
-import { Article, LatestPost, Box, Header } from '@/components';
+import { ExtLinks, ProfilePic } from '@/components';
 ---
 
 <html lang='en'>
@@ -17,26 +16,17 @@ import { Article, LatestPost, Box, Header } from '@/components';
 	</head>
 	<body>
 		<Base>
-			<Header />
-			<main class='grid grid-cols-4 gap-4'>
-				<Box className='col-span-1'>
-					<nav>
-						<h2>CONTENTS</h2>
-						<ul class='list-inside list-disc'>
-							<li>HOME</li>
-							<li>POSTS</li>
-						</ul>
-					</nav>
-				</Box>
-
-				<Box className='col-span-3'>
-					<LatestPost />
-				</Box>
-
-				<Box className='col-span-4'>
-					<Article> Unga bunga </Article>
-				</Box>
-			</main>
+			<div
+				class='flex justify-between bg-[url("/assets/head_diag.svg")] md:h-full md:w-full md:items-center md:justify-center md:bg-none md:p-8'>
+				<div>
+					<h1 class='text-4xl'>Kristopher James<br />Kent</h1>
+					<p>I'm a software developer, writer, healthcare worker, etc.</p>
+				</div>
+				<div>
+					<ProfilePic image='braille' className='max-w-sm' />
+					<ExtLinks className='flex justify-end text-right' />
+				</div>
+			</div>
 		</Base>
 	</body>
 </html>

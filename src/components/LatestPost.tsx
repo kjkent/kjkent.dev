@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { type RFC } from '@/types';
 import { dateStringify } from '@/utils';
+import { fallbackMeta } from '@/data/posts/fallback';
 
 const posts = await getCollection('posts');
 const latestPost = posts.sort(
@@ -12,11 +13,11 @@ const latestPost = posts.sort(
 )[0];
 
 export const LatestPost: RFC<'table'> = ({ ...attrs }) => {
-	const { title, published, abstract } = latestPost.data;
+	const { title, published, abstract } = latestPost?.data || fallbackMeta;
 	return (
 		<table className='w-full border-collapse' {...attrs}>
-			<caption className='mb-2 text-start font-bold underline'>
-				LATEST POST
+			<caption>
+				<h2 className='text-start'>LATEST POST</h2>
 			</caption>
 			<tr className='border-b border-black'>
 				<th scope='row' className='pr-2 text-start font-bold'>

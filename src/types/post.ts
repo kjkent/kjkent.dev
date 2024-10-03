@@ -1,7 +1,5 @@
-import type { DateString } from '@/types';
-
 export type PostMeta = {
 	title: string;
-	date: DateString;
+	published: Date;
 	abstract: string;
 };

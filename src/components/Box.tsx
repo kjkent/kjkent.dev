@@ -1,6 +1,6 @@
 import type { RFC } from '@/types';
 
-const defaultStyle = ['border-2', 'border-black', 'p-2'].join(' ');
+const defaultStyle = ['border-2', 'border-[#7aa2f7]', 'px-4', 'py-2'].join(' ');
 
 export const Box: RFC<'section'> = ({ className, children, ...attrs }) => {
 	return (

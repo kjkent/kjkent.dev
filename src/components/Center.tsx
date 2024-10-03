@@ -12,15 +12,18 @@ export const Center: RFC<'div', CenterProps> = ({
 	const yAlign = 'items-center';
 
 	const parentDefaults = [
-		// 'w-full', // Needs to fill entirety of containing div
-		// 'h-full', //  for centering to work.
+		'w-full', // Needs to fill entirety of containing div
+		'h-full', //  for centering to work.
 		'flex',
 		['xy', 'yx'].includes(axis) && `${xAlign} ${yAlign}`,
 		['x'].includes(axis) && xAlign,
 		['y'].includes(axis) && yAlign,
 	];
 
-	const parentClass = [...parentDefaults].join(' ').concat(` ${className}`);
+	const parentClass = [...parentDefaults]
+		.filter(Boolean)
+		.join(' ')
+		.concat(` ${className}`);
 
 	return (
 		<div {...attrs} className={parentClass}>

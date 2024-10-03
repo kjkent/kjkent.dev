@@ -1,5 +1,7 @@
-import Astro from 'astro:global';
 import type { RFC } from '@/types';
+
+// @ts-expect-error
+import Astro from 'astro:global';
 
 const checkAstroSiteDefined = (): void => {
 	if (!Astro.site) {
