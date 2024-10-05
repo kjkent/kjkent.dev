@@ -9,7 +9,7 @@ type ExtLinksRFC = RFC<
 
 export const ExtLinks: ExtLinksRFC = ({ ...attrs }) => {
 	return (
-		<section {...attrs} className='mt-2 flex justify-end gap-x-3'>
+		<section {...attrs} className='flex justify-end gap-x-5'>
 			{extLinks.map((e, i) => {
 				return (
 					<Link
