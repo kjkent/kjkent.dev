@@ -1,7 +1,5 @@
 import type { RFC } from '@/types';
 
-const defaultStyle = 'inline-block';
-
 export const Icon: RFC<'span', { icon: string }> = ({
 	icon,
 	className,
@@ -9,7 +7,7 @@ export const Icon: RFC<'span', { icon: string }> = ({
 }) => {
 	if (!icon) throw new Error('Icon not defined');
 
-	const style = [className || defaultStyle, icon].join(' ');
+	const style = [icon, className].join(' ');
 
 	return <span {...props} className={style}></span>;
 };

@@ -5,12 +5,12 @@
 	"type": "module",
 	"scripts": {
 		"check": "pnpm exec astro check",
-		"build": "pnpm run check && pnpm exec astro build",
+		"build": "pnpm run check && pnpm exec astro build --force",
 		"preview": "pnpm exec astro preview",
-		"start": "pnpm run check && pnpm exec astro dev"
+		"start": "pnpm run check && pnpm exec astro dev --force"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.3",
+		"@astrojs/check": "^0.9.4",
 		"@astrojs/react": "^3.6.2",
 		"@astrojs/tailwind": "^5.1.1",
 		"@astrojs/ts-plugin": "^1.10.2",
@@ -32,10 +32,10 @@
 		"typescript": "^5.6.2"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.11.1",
+		"@eslint/js": "^9.12.0",
 		"@types/eslint-plugin-jsx-a11y": "^6.9.0",
 		"@types/eslint__js": "^8.42.3",
-		"eslint": "^9.11.1",
+		"eslint": "^9.12.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-astro": "^1.2.4",
 		"eslint-plugin-jsx-a11y": "^6.10.0",
@@ -48,6 +48,5 @@
 		"prettier-plugin-packagejson": "2.5.2",
 		"prettier-plugin-tailwindcss": "^0.6.8",
 		"typescript-eslint": "^8.8.0"
-	},
-	"packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+	}
 }

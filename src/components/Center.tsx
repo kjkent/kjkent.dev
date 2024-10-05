@@ -2,32 +2,25 @@ import type { RFC } from '@/types';
 
 type CenterProps = { axis: 'x' | 'y' | 'xy' | 'yx' };
 
-export const Center: RFC<'div', CenterProps> = ({
-	axis,
-	className,
-	children,
-	...attrs
-}) => {
+export const Center: RFC<'div', CenterProps> = ({ axis, children, ...attrs }) => {
 	const xAlign = 'justify-center';
 	const yAlign = 'items-center';
-
 	const parentDefaults = [
-		'w-full', // Needs to fill entirety of containing div
-		'h-full', //  for centering to work.
+		// Needs to fill entirety of containing div
 		'flex',
 		['xy', 'yx'].includes(axis) && `${xAlign} ${yAlign}`,
 		['x'].includes(axis) && xAlign,
 		['y'].includes(axis) && yAlign,
 	];
 
-	const parentClass = [...parentDefaults]
-		.filter(Boolean)
-		.join(' ')
-		.concat(` ${className}`);
+	// Combine the defaults with passed className to handle any overrides
+	const parentClass = [...parentDefaults].filter(Boolean).join(' ');
 
+	// Child also needs to be in own div, filling the entire parent to
+	// avoid sizing issues or having any flex-child attributes applied
 	return (
 		<div {...attrs} className={parentClass}>
-			{children}
+			<div className='grow'>{children}</div>
 		</div>
 	);
 };

@@ -16,15 +16,18 @@ import { ExtLinks, ProfilePic } from '@/components';
 	</head>
 	<body>
 		<Base>
-			<div
-				class='flex justify-between bg-[url("/assets/head_diag.svg")] md:h-full md:w-full md:items-center md:justify-center md:bg-none md:p-8'>
-				<div>
-					<h1 class='text-4xl'>Kristopher James<br />Kent</h1>
+			<div class='flex size-full items-end justify-center'>
+				<div class='flex flex-col'>
+					<h1>
+						<span class='mr-10'>Kristopher<br /></span>
+						<span class='mr-5'>James<br /></span>
+						<span class='mr-0'>Kent</span>
+					</h1>
 					<p>I'm a software developer, writer, healthcare worker, etc.</p>
 				</div>
-				<div>
-					<ProfilePic image='braille' className='max-w-sm' />
-					<ExtLinks className='flex justify-end text-right' />
+				<div class='max-w-sm'>
+					<ProfilePic image='braille' className='w-full' />
+					<ExtLinks />
 				</div>
 			</div>
 		</Base>
