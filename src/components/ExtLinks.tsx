@@ -2,10 +2,7 @@ import type { RFC } from '@/types';
 import { Icon, Link } from '@/components';
 import { extLinks } from '@/data';
 
-type ExtLinksRFC = RFC<
-	'a' | 'section' | 'span',
-	{ groupCn?: string; iconCn?: string }
->;
+type ExtLinksRFC = RFC<'section'>;
 
 export const ExtLinks: ExtLinksRFC = ({ ...attrs }) => {
 	return (
@@ -16,7 +13,7 @@ export const ExtLinks: ExtLinksRFC = ({ ...attrs }) => {
 						key={i}
 						href={e.href}
 						className='inline-block size-min leading-[0]'>
-						<Icon className='size-6' icon={e.icon} />
+						<Icon className='size-6 text-term-fg' icon={e.icon} />
 					</Link>
 				);
 			})}

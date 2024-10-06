@@ -14,4 +14,13 @@
 	h3{
 		@apply mb-1 text-base underline
 	}
+	p {
+		@apply mb-4 text-term-fg
+	}
+}
+
+@layer utilities {
+	.center-flex {
+		@apply flex h-full w-full items-center justify-center
+	}
 }

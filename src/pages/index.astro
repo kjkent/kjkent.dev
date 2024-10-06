@@ -16,23 +16,50 @@ import { ExtLinks, ProfilePic } from '@/components';
 	</head>
 	<body>
 		<Base>
-			<div class='flex h-full content-center items-center justify-center'>
-				<div class='grid grid-cols-2 grid-rows-5 gap-x-4 gap-y-1'>
-					<h1 class='row-span-2 mb-0 mt-auto text-right'>
-						<span class='mr-10'>Kristopher<br /></span>
-						<span class='mr-5'>James<br /></span>
-						<span class='mr-0'>Kent</span>
-					</h1>
-					<p class='col-start-1 row-span-3 row-start-3 my-auto'>
-						I'm a software developer, writer, healthcare worker, etc.
-					</p>
-					<div class='col-start-2 row-span-4 row-start-1 max-w-sm'>
-						<ProfilePic image='braille' className='w-full' />
+			<div class='center-flex flex-col'>
+				<!-- Content -->
+				<main class='flex gap-8'>
+					<!-- LHS panel -->
+					<main class='flex max-w-sm flex-col justify-between'>
+						<h1 class='height-fit mb-0 mt-8 text-right'>
+							<span class='mr-16 block'>Kristopher</span>
+							<span class='mr-8 block'>James</span>
+							<span class='mr-0 block'>Kent</span>
+						</h1>
+
+						<section>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+								tempora voluptatum neque, sit a, excepturi delectus consequuntur
+								et autem, expedita nam. Reiciendis fugit vitae ducimus dolor,
+								quasi tempora eligendi delectus!
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut
+								laborum voluptatum facere fuga ratione debitis est unde, nostrum
+								odit autem, velit odio doloremque inventore. Mollitia quis
+								inventore quaerat modi unde.
+							</p>
+						</section>
+
+						<nav class='flex justify-evenly'>
+							<span>NAV</span>
+							<span>NAV</span>
+							<span>NAV</span>
+						</nav>
+					</main>
+					<!-- /LHS panel -->
+
+					<!-- RHS panel -->
+					<div class='flex flex-col justify-between'>
+						<ProfilePic
+							image='braille'
+							className='hidden max-w-sm select-none md:mb-1 md:mr-1 md:block'
+						/>
+						<ExtLinks className='span justify-end self-start' />
 					</div>
-					<div class='col-start-2 row-start-5'>
-						<ExtLinks />
-					</div>
-				</div>
+					<!-- /RHS panel -->
+				</main>
 			</div>
 		</Base>
 	</body>

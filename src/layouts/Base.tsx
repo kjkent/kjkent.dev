@@ -12,15 +12,13 @@ import '@/styles/base.css';
  *  using height/width: 100%, the parent *must* have a height/width set or it
  *  will not expand as expected.
  */
-
-const baseStyles = ['h-screen', 'w-screen', 'flex flex-col'].join(' ');
-
-const darkStyles = ['bg-term-bg', 'text-term-fg'].join(' ');
+const baseStyles = 'h-screen w-screen flex flex-col';
+const darkStyles = 'bg-term-bg text-term-fg';
 
 export const Base: RFC<'div'> = ({ children, className = '', ...props }) => {
 	return (
 		<div {...props} className={baseStyles.concat(' ', darkStyles)}>
-			<div className='h-full w-full'>{children}</div>
+			<div className='grow'>{children}</div>
 			<Footer />
 		</div>
 	);

@@ -7,9 +7,10 @@ const randomElement = (arr: unknown[]) => {
 const snark: string[] = [
 	'Powered by Existential Dread™',
 	"All the other sites have cookies, where are mine? :'(",
-	'All your base are belong to us',
-	'(╯°□°）╯︵ ┻━┻',
+	'Totally mining crypto in your browser',
+	'Bring back Blobmojis',
 	'(ノಠ益ಠ)ノ彡┻━┻',
+	'(V) (°,,,,°) (V)',
 	'Not tested on animals',
 	'Tabs are the superior indentation method',
 	'the an​*̶͑̾̾​̅ͫ͏̙̤g͇̫͛͆̾ͫ̑͆l͖͉̗̩̳̟̍ͫͥͨe̠̅s ͎a̧͈͖r̽̾̈́͒͑e n​ot rè̑ͧ̌aͨl̘̝̙̃ͤ͂̾̆',
@@ -17,14 +18,18 @@ const snark: string[] = [
 
 const copyright = '© 2024 Kristopher James Kent';
 
-const footerStyle = ['pb-1', 'text-[#e0af68]', 'text-center', 'text-xs'].join(
+const footerStyle = ['pb-1', 'text-term-yellow', 'text-center', 'text-xs'].join(
 	' ',
 );
 
 export const Footer: RFC<'footer'> = ({ ...attrs }) => {
 	return (
 		<footer {...attrs} className={footerStyle}>
-			{randomElement(snark) as string} <b>|</b> {copyright}
+			{randomElement(snark) as string}
+			<pre className='inline text-term-yellow'>
+				<b> λ </b>
+			</pre>
+			{copyright}
 		</footer>
 	);
 };
