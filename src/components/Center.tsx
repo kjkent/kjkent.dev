@@ -1,26 +1,42 @@
 import type { RFC } from '@/types';
 
-type CenterProps = { axis: 'x' | 'y' | 'xy' | 'yx' };
+type CenterProps = {
+	axis: 'x' | 'y' | 'xy' | 'yx';
+};
 
-export const Center: RFC<'div', CenterProps> = ({ axis, children, ...attrs }) => {
-	const xAlign = 'justify-center';
-	const yAlign = 'items-center';
-	const parentDefaults = [
-		// Needs to fill entirety of containing div
-		'flex',
-		['xy', 'yx'].includes(axis) && `${xAlign} ${yAlign}`,
-		['x'].includes(axis) && xAlign,
-		['y'].includes(axis) && yAlign,
-	];
+/**
+ * CURSED KNOWLEDGE: min-height is not a stricter version of height
+ *
+ *  Background: https://stackoverflow.com/a/2341935
+ *
+ * If using min-height: 100% for the parent element, the child will not grow
+ *  to fill the height of its parent (height may be computed as 'auto'). If
+ *  using height/width: 100%, the parent *must* have a height/width set or it
+ *  will not expand as expected.
+ */
+export const Center: RFC<'div', CenterProps> = ({
+	axis,
+	children,
+	className = '',
+	...attrs
+}) => {
+	const yAlign = 'justify-center';
+	const xAlign = 'items-center';
+	const parentClass = [
+		'flex flex-col',
+		'h-full',
+		'w-full',
+		axis.includes('x') && ` ${xAlign}`,
+		axis.includes('y') && ` ${yAlign}`,
+	]
+		.filter(Boolean)
+		.join(' ');
 
-	// Combine the defaults with passed className to handle any overrides
-	const parentClass = [...parentDefaults].filter(Boolean).join(' ');
-
-	// Child also needs to be in own div, filling the entire parent to
-	// avoid sizing issues or having any flex-child attributes applied
 	return (
-		<div {...attrs} className={parentClass}>
-			<div className='grow'>{children}</div>
+		<div className={parentClass}>
+			<div {...attrs} className={className}>
+				{children}
+			</div>
 		</div>
 	);
 };

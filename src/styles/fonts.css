@@ -1,5 +1,7 @@
 /* Carrois Gothic (sans font) */
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
+/* Podkova (serif font) */
+@import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap');
 
 @font-face {
 	font-family: bm;

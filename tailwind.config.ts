@@ -10,6 +10,7 @@ const tailwindConfig: TailwindConfig = {
 			fontFamily: {
 				mono: ['bm', ...defaultTheme.fontFamily.mono],
 				sans: ['Carrois\\ Gothic', ...defaultTheme.fontFamily.sans],
+				serif: ['Podkova', ...defaultTheme.fontFamily.serif],
 			},
 			colors: {
 				term: {

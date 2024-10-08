@@ -1,6 +1,6 @@
 ---
 import { Base } from '@/layouts';
-import { ExtLinks, ProfilePic } from '@/components';
+import { Center, ExtLinks, Link, ProfilePic } from '@/components';
 ---
 
 <html lang='en'>
@@ -14,55 +14,40 @@ import { ExtLinks, ProfilePic } from '@/components';
 		/>
 		<title>kjkent</title>
 	</head>
-	<body>
-		<Base>
-			<div class='center-flex flex-col'>
-				<!-- Content -->
-				<main class='flex gap-8'>
-					<!-- LHS panel -->
-					<main class='flex max-w-sm flex-col justify-between'>
-						<h1 class='height-fit mb-0 mt-8 text-right'>
-							<span class='mr-16 block'>Kristopher</span>
-							<span class='mr-8 block'>James</span>
-							<span class='mr-0 block'>Kent</span>
-						</h1>
+	<Base>
+		<!-- Content centering -->
+		<Center axis='xy' className='flex h-fit'>
+			<!-- LHS panel -->
+			<div class='flex max-w-sm flex-col justify-normal gap-y-8'>
+				<h1
+					class='krz z-10 -mr-44 mt-auto w-fit self-center bg-clip-text text-right font-mono text-6xl'>
+					<span class='mr-16 block'>Kristopher</span>
+					<span class='mr-8 block'>James</span>
+					<span class='mr-0 block'>Kent</span>
+				</h1>
 
-						<p>
-							Junior software developer with one year of experience and a
-							lifetime of tech obsession.
-						</p>
-						<p>
-							Previously a sales executive then science writer for <a
-								class='text-term-red'
-								href='https://nature.com'>Nature</a
-							>, with stints as a healthcare worker in the North American opioid
-							crisis, and during the COVID-19 pandemic.
-						</p>
-						<p>
-							My coding passions lie in embedded systems, creative coding, and
-							FOSS. I'm part of the Arch Linux Testing Team, maintain packages
-							on the Arch User Repository, and have made small contributions to
-							open-source projects on GitHub.
-						</p>
-						<nav class='flex justify-evenly font-bold'>
-							<span>ABOUT</span>
-							<span>POSTS</span>
-							<span>CONTACT</span>
-						</nav>
-					</main>
-					<!-- /LHS panel -->
+				<p class='font-serif text-lg'>
+					Junior software engineer with a background in medical and
+					pharmacological science, science publishing, and crisis healthcare.
+				</p>
 
-					<!-- RHS panel -->
-					<div class='flex flex-col justify-between'>
-						<ProfilePic
-							image='braille'
-							className='hidden max-w-sm select-none md:mb-1 md:mr-1 md:block'
-						/>
-						<ExtLinks className='span self-start' />
-					</div>
-					<!-- /RHS panel -->
-				</main>
+				<nav class='flex justify-evenly font-mono font-bold'>
+					<Link href='/about'>ABOUT</Link>
+					<Link href='/posts'>POSTS</Link>
+					<Link href='/contact'>CONTACT</Link>
+				</nav>
 			</div>
-		</Base>
-	</body>
+			<!-- /LHS panel -->
+			<!-- RHS panel -->
+			<div class='flex max-w-sm flex-col'>
+				<ProfilePic
+					image='braille'
+					className='hidden max-w-sm select-none md:mb-1 md:mr-1 md:block'
+				/>
+				<ExtLinks />
+			</div>
+			<!-- /RHS panel -->
+		</Center>
+		<!-- /Content centering -->
+	</Base>
 </html>

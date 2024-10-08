@@ -1,4 +1,8 @@
-import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import type {
+	ComponentPropsWithoutRef,
+	ElementType,
+	ReactElement,
+} from 'react';
 
 type GenericProp = { [key: string | number]: unknown };
 
@@ -35,5 +39,5 @@ export type RFC<
 	ReturnedHTMLElement extends ElementType = ElementType,
 	Props extends GenericProp = ComponentPropsWithoutRef<ElementType>,
 > = {
-	(props: FCProps<Props, ReturnedHTMLElement>): ReactNode | null;
+	(props: FCProps<Props, ReturnedHTMLElement>): ReactElement;
 };

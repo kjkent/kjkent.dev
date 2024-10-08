@@ -3,22 +3,19 @@ import { Footer } from '@/components';
 import '@/styles/base.css';
 
 /**
- * CURSED KNOWLEDGE: min-height is not a stricter version of height
+ * The base layout for the site (atm just appends `<Footer />`).
+ * Must be outermost tag after `<body>`.
  *
- *  Background: https://stackoverflow.com/a/2341935
- *
- * If using min-height: 100% for the parent element, the child will not grow
- *  to fill the height of its parent (height may be computed as 'auto'). If
- *  using height/width: 100%, the parent *must* have a height/width set or it
- *  will not expand as expected.
+ * @param   - Passed in by React, contains children, className, attrs, etc.
+ * @returns - A `div` element with 100% height and width set.
+ *              Do not use size attributes on <Base /> itself.
  */
-const baseStyles = 'h-screen w-screen flex flex-col';
-const darkStyles = 'bg-term-bg text-term-fg';
-
-export const Base: RFC<'div'> = ({ children, className = '', ...props }) => {
+export const Base: RFC<'div'> = ({ children, className = '', ...attrs }) => {
 	return (
-		<div {...props} className={baseStyles.concat(' ', darkStyles)}>
-			<div className='grow'>{children}</div>
+		<div className='flex h-screen w-screen flex-col'>
+			<div {...attrs} className={`h-full w-full ${className}`}>
+				{children}
+			</div>
 			<Footer />
 		</div>
 	);

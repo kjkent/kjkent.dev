@@ -11,16 +11,21 @@ const snark: string[] = [
 	'Bring back Blobmojis',
 	'(ノಠ益ಠ)ノ彡┻━┻',
 	'(V) (°,,,,°) (V)',
-	'Not tested on animals',
+	'This site no longer tests on animals',
 	'Tabs are the superior indentation method',
 	'the an​*̶͑̾̾​̅ͫ͏̙̤g͇̫͛͆̾ͫ̑͆l͖͉̗̩̳̟̍ͫͥͨe̠̅s ͎a̧͈͖r̽̾̈́͒͑e n​ot rè̑ͧ̌aͨl̘̝̙̃ͤ͂̾̆',
 ];
 
 const copyright = '© 2024 Kristopher James Kent';
 
-const footerStyle = ['pb-1', 'text-term-yellow', 'text-center', 'text-xs'].join(
-	' ',
-);
+const footerStyle = [
+	'h-fit',
+	'pb-0.5',
+	'font-mono',
+	'text-term-yellow',
+	'text-center',
+	'text-xs',
+].join(' ');
 
 export const Footer: RFC<'footer'> = ({ ...attrs }) => {
 	return (
