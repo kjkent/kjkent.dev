@@ -1,16 +1,9 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 import global from 'astro-global';
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		global(),
-		react(),
-		tailwind({
-			// Imported in base.css
-			applyBaseStyles: false,
-		}),
-	],
+	integrations: [global(), react(), tailwind({ applyBaseStyles: false })],
 });

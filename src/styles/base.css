@@ -10,24 +10,37 @@
 	}
 }
 
+@keyframes ghost {
+	0%,
+	100% {
+		opacity: 0;
+		scale: 0.5;
+	}
+
+	50% {
+		opacity: 1;
+		scale: 1;
+	}
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
 	body {
-		@apply text-term-fg bg-term-bg font-serif;
+		@apply text-fg bg-bg font-serif;
 	}
 
 	h1 {
-		@apply text-term-yellow mb-10 text-2xl md:text-4xl font-bold font-mono tracking-wider italic;
+		@apply text-yellow mb-10 text-2xl md:text-4xl font-bold font-mono tracking-wider italic;
 	}
 
 	h2 {
 		@apply mb-4 font-bold underline tracking-wider underline-offset-4 decoration-2 decoration-double;
 	}
 
-	h3{
+	h3 {
 		@apply mb-1 text-base underline;
 	}
 
@@ -38,6 +51,9 @@
 
 @layer utilities {
 	.krz {
-		@apply bg-[url('/assets/clouds.jpg')] font-serif bg-clip-text text-transparent animate-[krz_50s_linear_infinite];
+		@apply bg-[url('/media/home/clouds.jpg')] font-serif bg-clip-text text-yellow/0 animate-[krz_50s_linear_infinite] bg-center bg-no-repeat;
+	}
+	.ghost {
+		@apply select-none animate-[ghost_4s_ease-out];
 	}
 }

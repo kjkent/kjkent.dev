@@ -1,3 +1,4 @@
+import { addDynamicIconSelectors } from '@iconify/tailwind';
 import type { Config as TailwindConfig } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
@@ -30,6 +31,7 @@ const tailwindConfig: TailwindConfig = {
 			lcyan: '#aaffe4',
 		},
 	},
+	plugins: [addDynamicIconSelectors()],
 };
 
 export default tailwindConfig;
