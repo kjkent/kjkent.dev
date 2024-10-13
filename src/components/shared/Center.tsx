@@ -13,7 +13,6 @@ type ClassString =
 	| `${XClass} ${YClass}`
 	| `${YClass} ${XClass}`;
 
-
 const axisToClass = (axis: Axis): ClassString => {
 	if (axis === 'x') {
 		return 'justify-center';
@@ -22,7 +21,6 @@ const axisToClass = (axis: Axis): ClassString => {
 		return 'items-center';
 	}
 	return 'items-center justify-center';
-
 };
 
 // type Breakpoint = 'sm:' | 'md:' | 'lg:' | 'xl:' | '2xl:';

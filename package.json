@@ -4,11 +4,12 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro check && astro build",
-		"preview": "astro preview",
-		"astro": "astro"
+		"dev": "pnpm exec astro dev",
+		"check": "pnpm exec biome check",
+		"start": "pnpm exec astro dev",
+		"build": "pnpm run check && pnpm exec astro build",
+		"preview": "pnpm run build && pnpm exec wrangler pages dev ./dist",
+		"deploy": "pnpm run build && pnpm exec wrangler pages deploy ./dist"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",

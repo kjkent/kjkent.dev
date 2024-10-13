@@ -1,9 +1,9 @@
 # jetbrains setting folder
 .idea/
 
-# potential licensed fonts
-.otf
-.ttf
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars
 
 # build output
 dist/
