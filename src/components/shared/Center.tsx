@@ -1,68 +1,64 @@
 import type { RFC } from '@/types';
 
+const PARENT_BASE = 'flex h-full w-full';
+
 type Axis = 'x' | 'y' | 'xy' | 'yx';
-type Breakpoint = 'sm:' | 'md:' | 'lg:' | 'xl:' | '2xl:';
-type XClass = 'items-center';
-type YClass = 'justify-center';
-type ClassString = 
-	| XClass 
-	| YClass 
-	| `${XClass} ${YClass}` 
+type XClass = 'justify-center';
+type YClass = 'items-center';
+
+type CenterProps = { axis?: Axis; parentClasses?: string };
+type ClassString =
+	| XClass
+	| YClass
+	| `${XClass} ${YClass}`
 	| `${YClass} ${XClass}`;
 
-type AxisWithBreakpoint = `${Breakpoint | ''}${Axis}`;
-type ClassWithBreakpoint = `${Breakpoint | ''}${XClass | YClass}`;
-
-type CenterProps = { axis: AxisWithBreakpoint }
 
 const axisToClass = (axis: Axis): ClassString => {
 	if (axis === 'x') {
-		return 'items-center';
+		return 'justify-center';
 	}
 	if (axis === 'y') {
-		return 'justify-center';
+		return 'items-center';
 	}
 	return 'items-center justify-center';
 
 };
 
-const parseAxisString = (axisPropString: string): string => {
-	// Example axis string: 'xy md:x'
+// type Breakpoint = 'sm:' | 'md:' | 'lg:' | 'xl:' | '2xl:';
+// type AxisWithBreakpoint = `${Breakpoint | ''}${Axis}`;
+// type ClassWithBreakpoint = `${Breakpoint | ''}${XClass | YClass}`;
+// const parseAxisString = (axisPropString: string): string => {
+// 	// Example axis string: 'xy md:x'
 
-	// Split into breakpoints: ['xy', 'md:x']
-	const axis = axisPropString.split(' ') as AxisWithBreakpoint[];
+// 	// Split into breakpoints: ['xy', 'md:x']
+// 	const axis: AxisWithBreakpoint[] = axisPropString.split(' ') as AxisWithBreakpoint[];
 
-	// Convert to class strings: ['items-center justify-center', 'md:items-center']
-	const classStrings = axis.map((axisItem) => {
-		if (axisItem.includes(':')) {
-			const [breakpoint, axis] = axisItem.split(':');
-			return `${breakpoint}:${axisToClass(axis)}`;
-		}
-		return axisToClass(axisItem);
-	});
-};
+// 	// Convert to class strings: ['items-center justify-center', 'md:items-center']
+// 	const classStrings: ClassWithBreakpoint[] = axis.map((axisItem) => {
+// 		if (axisItem.includes(':')) {
+// 			const [breakpoint, axis] = axisItem.split(':');
+// 			return `${breakpoint}:${axisToClass(axis as Axis)}`;
+// 		}
+// 		return axisToClass(axisItem as Axis);
+// 	}) as ClassWithBreakpoint[];
 
+// 	return classStrings.join(' ');
+// };
 
 export const Center: RFC<'div', CenterProps> = ({
-	axis,
+	axis = 'xy',
+	parentClasses,
 	children,
 	className = '',
 	...attrs
 }) => {
-	const yAlign = 'justify-center';
-	const xAlign = 'items-center';
-	const parentClass = [
-		'flex flex-col',
-		'h-full',
-		'w-full',
-		axis.includes('x') && ` ${xAlign}`,
-		axis.includes('y') && ` ${yAlign}`,
-	]
-		.filter(Boolean)
-		.join(' ');
+	if (!parentClasses) {
+		parentClasses = axisToClass(axis);
+	}
 
 	return (
-		<div className={parentClass}>
+		<div className={`${PARENT_BASE} ${parentClasses}`}>
 			<div {...attrs} className={className}>
 				{children}
 			</div>

@@ -6,38 +6,28 @@ import { Base } from '@/layouts';
 <Base
 	title='kjkent'
 	description='The personal website of Kristopher James Kent'
+	className='bg-[url(/media/home/pixelHead.webp)] bg-no-repeat bg-bottom bg-contain bg-fixed backdrop-blur-lg md:bg-none'
 >
-<div class='absolute ml-auto mr-auto mt-auto bottom-0 left-0 right-0 -z-10 h-fit bg-gradient-to-t to-bg/0 from-[#000000] bg-clip-content md:hidden'>
-	<picture class='max-w-md relative -z-10 left-0 top-[42.5%] opacity-50'>
-		<source
-			srcset='/media/home/pixelHead.webp'
-			type='image/webp'
-		/>
-
-		<img
-			class='max-w-md relative -z-10 left-0 top-[42.5%] opacity-100'
-			src='/media/home/pixelHead.png'
-			alt='A blurry background of clouds'
-		/>
-
-	</picture>
-</div>
 	
-	<Center axis='x' className='grid grid-cols-1 gap-y-8 md:grid-cols-2'>
-			<header class='max-w-sm col-start-1 col-end-1 row-start-1 row-end-1'>
+	<Center className='grid grid-cols-1 gap-y-8 md:gap-y-0 md:grid-cols-2 md:pt-0'>
+
+			<header class='max-w-sm col-start-1 col-end-1 row-start-1 row-end-1 md:mt-20'>
+
 				<h1 class='krz mb-0 text-right text-6xl'>
-				<span class='mr-16 block'>Kristopher</span>
-				<span class='mr-8 block'>James</span>
-				<span class='mr-0 block'>Kent</span>
-			</h1>
+					<span class='mr-16 block'>Kristopher</span>
+					<span class='mr-8 block'>James</span>
+					<span class='mr-0 block'>Kent</span>
+				</h1>
+
 			</header>
 
 			<ProfilePic className='hidden select-none md:block md:max-w-sm md:row-span-2' />
 			
-				<p class='max-w-sm font-mono mb-0 text-lg'>
-				<i><b>Junior software engineer</b> with a background in medical and
-				pharmacological science, science journalism and crisis healthcare.</i>
+			<p class='max-w-sm font-mono mb-0 text-lg italic'>
+				<b>Junior software engineer</b> with a background in medical and
+				pharmacological science, science journalism and crisis healthcare.
 			</p>
+
 			<ExtLinks className='text-2xl text-fg flex justify-center gap-x-7 my-1 -mr-0.5 md:col-start-2 md:ml-auto' />
 
 	</Center>

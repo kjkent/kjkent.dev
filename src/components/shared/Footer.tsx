@@ -34,7 +34,7 @@ const Divider: RFC<'pre'> = ({ className, ...attrs }) => {
 		'text-fg',
 		'text-red',
 		'text-green',
-		'text-yellow',
+		// 'text-yellow',
 		'text-blue',
 		'text-magenta',
 		'text-cyan',
@@ -48,25 +48,21 @@ const Divider: RFC<'pre'> = ({ className, ...attrs }) => {
 };
 
 const footerStyle = [
-	'flex',
-	'justify-center',
-	'items-center',
+	'flex flex-col md:flex-row',
+	'justify-center items-center',
 	'h-fit',
-	'px-1',
-	'pb-0.5',
-	'font-mono',
-	'text-yellow',
-	'whitespace-nowrap',
-	'overflow-hidden',
-	'text-xs',
+	'px-1 pb-0.5',
+	'font-mono text-yellow text-xs',
+	'whitespace-nowrap overflow-hidden',
+	'',
 ].join(' ');
 
 export const Footer: RFC<'footer'> = ({ ...attrs }) => {
 	return (
 		<footer {...attrs} className={footerStyle}>
-			<Tagline />
-			<Divider />
 			<Copyright />
+			<Divider className='hidden md:inline' />
+			<Tagline />
 		</footer>
 	);
 };
