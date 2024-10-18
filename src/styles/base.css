@@ -51,7 +51,7 @@
 
 @layer utilities {
 	.krz {
-		@apply bg-[url('/media/home/clouds.jpg')] font-serif bg-clip-text text-yellow/0 animate-[krz_50s_linear_infinite] bg-center bg-no-repeat;
+		@apply bg-[url('/assets/home/clouds.jpg')] font-serif bg-clip-text text-yellow/0 animate-[krz_50s_linear_infinite] bg-center bg-no-repeat;
 	}
 	.ghost {
 		@apply select-none animate-[ghost_4s_ease-out];
