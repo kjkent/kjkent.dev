@@ -1,12 +1,18 @@
 ---
 import { Center, ExtLinks, ProfilePic } from '@/components';
 import { Base } from '@/layouts';
+
+const bgClasses = [
+	'bg-[url(/assets/home/pixelHead.webp)]',
+	'bg-[image-set(url("/assets/home/pixelHead.avif") type("image/avif"), url("/assets/home/pixelHead.webp") type("image/webp"))]',
+	'bg-no-repeat bg-bottom bg-contain bg-fixed backdrop-blur-lg md:bg-none',
+].join(' ');
 ---
 
 <Base
 	title='kjkent'
 	description='The personal website of Kristopher James Kent'
-	className='bg-[url(/assets/home/pixelHead.webp)] bg-no-repeat bg-bottom bg-contain bg-fixed backdrop-blur-lg md:bg-none'
+	className={bgClasses}
 >
 	
 	<Center className='grid grid-cols-1 gap-y-8 md:gap-y-0 md:grid-cols-2 md:pt-0'>
@@ -24,11 +30,9 @@ import { Base } from '@/layouts';
 			<ProfilePic className='hidden select-none md:block md:max-w-sm md:row-span-2' />
 			
 			<p class='max-w-sm font-mono mb-0 text-lg italic'>
-				<b>Junior software engineer</b> with a background in medical and
-				pharmacological science, science journalism and crisis healthcare.
+				<b>Junior software engineer</b> and internationally published research journalist/science communicator.
 			</p>
 
 			<ExtLinks className='text-2xl text-fg flex justify-center gap-x-7 my-1 -mr-0.5 md:col-start-2 md:ml-auto' />
-
 	</Center>
 </Base>

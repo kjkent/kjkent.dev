@@ -10,16 +10,15 @@
 	}
 }
 
-@keyframes ghost {
-	0%,
+@keyframes fadeout {
+	0% {
+		opacity: 1;
+		scale: 1;
+	}
+
 	100% {
 		opacity: 0;
 		scale: 0.5;
-	}
-
-	50% {
-		opacity: 1;
-		scale: 1;
 	}
 }
 
@@ -51,9 +50,13 @@
 
 @layer utilities {
 	.krz {
-		@apply bg-[url('/assets/home/clouds.jpg')] font-serif bg-clip-text text-yellow/0 animate-[krz_50s_linear_infinite] bg-center bg-no-repeat;
+		@apply bg-[url('/assets/home/clouds.webp')] 
+			bg-[image-set(url('/assets/home/clouds.avif')_type('image/avif'),_url('/assets/home/clouds.webp')_type('image/webp'))]
+			bg-center bg-no-repeat bg-clip-text
+			font-serif text-yellow/0
+			animate-[krz_50s_linear_infinite];
 	}
-	.ghost {
-		@apply select-none animate-[ghost_4s_ease-out];
+	.fadeout {
+		@apply select-none animate-[fadeout_4s_ease-in_1];
 	}
 }
