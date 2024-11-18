@@ -19,23 +19,19 @@
 
         devTools = with pkgs; [
           pkgs."nodejs_${nodeVersion}"
+          git
           biome
           nodePackages.pnpm
           nodePackages.wrangler
           nodePackages.typescript-language-server
           nodePackages.typescript
         ];
-      in
+      in with pkgs;
       {
-        formatter = pkgs.nixpkgs-fmt;
-        devShells.default = pkgs.mkShell rec {
+        formatter = nixpkgs-fmt;
+        devShells.default = mkShell {
           name = "kjkent-dev-env";
-          shell = "zsh";
           packages = devTools;
-          buildInputs = with pkgs; [
-            git
-            pkgs."${shell}"
-          ];
 
           shellHook = ''
             clear
@@ -53,8 +49,6 @@
             echo "- pnpm build      : Build for production"
             echo "- pnpm preview    : Preview production build"
             echo "- pnpm deploy     : Deploy to Cloudflare Pages"
-
-            exec ${shell}
           '';
         };
       }
