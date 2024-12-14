@@ -1,56 +1,56 @@
 {
-  description = "Development environment for kjkent.dev - Astro + React + TypeScript";
+  description = "Dev env for kjkent.dev - Astro + React + TypeScript";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
-  outputs = { nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+  outputs = {nixpkgs, ...}: let
+    shellPlatforms = [ "x86_64-linux" ];
 
-        # Accepts e.g., "20", "latest"
-        nodeVersion = "22";
-
-        devTools = with pkgs; [
-          pkgs."nodejs_${nodeVersion}"
+    mkShellSpec = system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+      default = pkgs.mkShell {
+        name = "kjkent-dev-env";
+        nativeBuildInputs = (with pkgs; [
+          nixd
+          nixfmt-rfc-style
           git
+          nodejs_22
           biome
-          nodePackages.pnpm
-          nodePackages.wrangler
-          nodePackages.typescript-language-server
-          nodePackages.typescript
-        ];
-      in with pkgs;
-      {
-        formatter = nixpkgs-fmt;
-        devShells.default = mkShell {
-          name = "kjkent-dev-env";
-          packages = devTools;
+          tailwindcss
+        ]) ++ (with pkgs.nodePackages; [
+          pnpm
+          wrangler
+          typescript
+          typescript-language-server
+        ]);
 
-          shellHook = ''
-            clear
-            echo "🚀 Development environment initialized!"
-            echo ""
-            echo "Project: kjkent.dev"
-            echo ""
-            echo "Node.js: $(node --version)"
-            echo "pnpm: $(pnpm --version)"
-            echo "TypeScript: $(tsc --version)"
-            echo ""
-            echo "Available commands:"
-            echo "- pnpm install    : Install dependencies"
-            echo "- pnpm dev        : Start development server"
-            echo "- pnpm build      : Build for production"
-            echo "- pnpm preview    : Preview production build"
-            echo "- pnpm deploy     : Deploy to Cloudflare Pages"
+        shellHook = ''
+          clear
+          echo "🚀 Development environment initialized!"
+          echo
+          echo "Project: kjkent.dev"
+          echo
+          echo "astro:$(astro --version)"
+          echo "node: $(node --version)"
+          echo "pnpm: $(pnpm --version)"
+          echo "tsc: $(tsc --version)"
+          echo
+          echo "Available commands:"
+          echo "- pnpm i       : Install dependencies"
+          echo "- pnpm dev     : Start dev server (wrangler)"
+          echo "- pnpm build   : Create build without deploying"
+          echo "- pnpm deploy  : Build and deploy to CloudFlare Pages"
+          echo
           '';
-        };
-      }
-    );
+      };
+    };
+  in with nixpkgs.lib; {
+      devShells = genAttrs shellPlatforms mkShellSpec;
+    };
 }
