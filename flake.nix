@@ -16,30 +16,26 @@
     in {
       default = pkgs.mkShell {
         name = "kjkent-dev-env";
-        nativeBuildInputs = (with pkgs; [
+        nativeBuildInputs = with pkgs; [
           nixd
           nixfmt-rfc-style
           git
           nodejs_22
-          biome
-          tailwindcss
-        ]) ++ (with pkgs.nodePackages; [
           pnpm
-          wrangler
-          typescript
-          typescript-language-server
-        ]);
+        ];
 
         shellHook = ''
+          pnpm install
+          export PATH="$PATH:$PWD/node_modules/.bin"
           clear
+
           echo "🚀 Development environment initialized!"
           echo
           echo "Project: kjkent.dev"
-          echo
-          echo "astro:$(astro --version)"
-          echo "node: $(node --version)"
-          echo "pnpm: $(pnpm --version)"
-          echo "tsc: $(tsc --version)"
+          echo "$(astro --version)"
+          echo "   node   $(node --version)"
+          echo "   pnpm   $(pnpm --version)"
+          echo "   tsc    $(tsc --version)"
           echo
           echo "Available commands:"
           echo "- pnpm i       : Install dependencies"
