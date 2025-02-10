@@ -2,51 +2,60 @@
   description = "Dev env for kjkent.dev - Astro + React + TypeScript";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
   };
 
   outputs = {nixpkgs, ...}: let
-    shellPlatforms = [ "x86_64-linux" ];
-
-    mkShellSpec = system: let
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in {
-      default = pkgs.mkShell {
-        name = "kjkent-dev-env";
-        nativeBuildInputs = with pkgs; [
-          nixd
-          nixfmt-rfc-style
-          git
-          nodejs_22
-          pnpm
-        ];
-
-        shellHook = ''
-          pnpm install
-          export PATH="$PATH:$PWD/node_modules/.bin"
-          clear
-
-          echo "🚀 Development environment initialized!"
-          echo
-          echo "Project: kjkent.dev"
-          echo "$(astro --version)"
-          echo "   node   $(node --version)"
-          echo "   pnpm   $(pnpm --version)"
-          echo "   tsc    $(tsc --version)"
-          echo
-          echo "Available commands:"
-          echo "- pnpm i       : Install dependencies"
-          echo "- pnpm dev     : Start dev server (wrangler)"
-          echo "- pnpm build   : Create build without deploying"
-          echo "- pnpm deploy  : Build and deploy to CloudFlare Pages"
-          echo
-          '';
-      };
+    pkgs = import nixpkgs {
+      config.allowUnfree = true;
+      system = "x86_64-linux";
     };
-  in with nixpkgs.lib; {
-      devShells = genAttrs shellPlatforms mkShellSpec;
+  in {
+    devShells.${pkgs.system}.default = pkgs.mkShell {
+      nativeBuildInputs = with pkgs; [
+        alejandra
+        git
+        jq
+        nixd
+        nodejs_22
+        pnpm
+      ];
+
+      shellHook = ''
+        echo -e "\nInstalling package.json dependencies"
+        (pnpm install) > /dev/null
+
+        echo "Adding node_modules executables to path"
+        export PATH="$PATH:$PWD/node_modules/.bin"
+
+        # pnpm commands from package.json
+        ${builtins.concatStringsSep "\n" (map 
+          (i: ''alias ${i}="pnpm exec ${i}"'')
+          ["build" "deploy" "dev" "lint" "updeps"]
+        )}
+
+        v_astro="$(astro --version | sed -n 's/   astro  v//p')"
+        v_node="$(node --version | sed -n 's/v//p')"
+        v_pnpm="$(pnpm --version)"
+
+        echo "
+        🚀 Development environment initialized!
+
+        Project: $(jq -r .name package.json)
+          Runtime:             Node.js $v_node
+          Framework:           Astro   $v_astro
+          Package Manager:     pnpm    $v_pnpm
+
+        Commands:
+          lint      Check and fix lint errors (Biome)
+          up        Update Astro and pnpm dependencies
+          dev       Start dev server (Wrangler)
+          build     Create build without deploying
+          deploy    Build and deploy (CloudFlare Pages)
+        "
+      '';
     };
+  };
 }
