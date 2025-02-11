@@ -1,4 +1,3 @@
-// @ts-expect-error: Astro:global may not be available before build.
 import Astro from 'astro:global';
 import type { RFC } from '@/types';
 

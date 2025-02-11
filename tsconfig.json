@@ -1,7 +1,28 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"allowJs": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
 		"baseUrl": ".",
+		"checkJs": true,
+		"esModuleInterop": true,
+		"exactOptionalPropertyTypes": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"moduleSuffixes": [".d", ""],
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"paths": {
 			"@/*": ["src/*"]
 		},
@@ -10,34 +31,13 @@
 				"name": "@astrojs/ts-plugin"
 			}
 		],
-		"checkJs": true,
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
-		"verbatimModuleSyntax": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"forceConsistentCasingInFileNames": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"allowJs": true,
-		"jsx": "react-jsx",
+		"skipLibCheck": false,
 		"strict": true,
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitOverride": true,
-		"noImplicitReturns": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noUncheckedIndexedAccess": true,
-		"exactOptionalPropertyTypes": true,
-		"allowUnreachableCode": false,
-		"allowUnusedLabels": false,
-		"jsxImportSource": "react"
+		"target": "ESNext",
+		"verbatimModuleSyntax": true
 	},
-	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["dist"],
+	"exclude": ["dist", "node_modules"],
 	"mdx": {
 		"checkMdx": true
 	}

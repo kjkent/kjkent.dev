@@ -23,8 +23,8 @@
 	}
 }
 
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
+@import "tailwindcss/preflight";
 @tailwind utilities;
 
 @layer base {

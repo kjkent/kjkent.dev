@@ -14,6 +14,7 @@ const Head: RFC<'head', { title: string; description: string }> = ({
 			<meta name='apple-mobile-web-app-title' content='kjkent' />
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
+
 			<link
 				rel='icon'
 				type='image/png'

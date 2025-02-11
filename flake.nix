@@ -24,6 +24,7 @@
       ];
 
       shellHook = ''
+        if [ "$NIX_DEVSHELL_HOOKED" != "1" ]; then
         echo -e "\nInstalling package.json dependencies"
         (pnpm install) > /dev/null
 
@@ -52,9 +53,10 @@
           lint      Check and fix lint errors (Biome)
           up        Update Astro and pnpm dependencies
           dev       Start dev server (Wrangler)
-          build     Create build without deploying
-          deploy    Build and deploy (CloudFlare Pages)
+          build     Create build in $(pwd)/dist
         "
+        export NIX_DEVSHELL_HOOKED=1
+        fi
       '';
     };
   };
